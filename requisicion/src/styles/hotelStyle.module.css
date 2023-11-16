@@ -59,7 +59,7 @@
 
 .thClose {
   color: #ffffff;
-  background: #991a1a;
+  background: #104B53;
   border-bottom: 4px solid #9ea7af;
   border-right: 1px solid #343a45;
   font-size: 18px;
@@ -74,7 +74,7 @@
 
 .thOpen {
   color: #ffffff;
-  background: #991a1a;
+  background: #104B53;
   border-bottom: 4px solid #ffffff;
   border-right: 1px solid #ffffff;
   font-size: 16px; /* Ajusta este valor según tus necesidades */

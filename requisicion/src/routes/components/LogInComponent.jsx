@@ -96,7 +96,7 @@ export const LogInComponent = () => {
                               <Link
                                 to="/estado-requisicion"
                                 style={{
-                                  color: "#6b1212",
+                                  color: "#104B53",
                                   textDecoration: "none",
                                 }}
                               >
