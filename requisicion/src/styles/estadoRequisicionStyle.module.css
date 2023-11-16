@@ -1,0 +1,60 @@
+.body {
+  background-color: #888888;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-left: 28%;
+  margin-right: 8%;
+}
+
+.containerOpen {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-left: 28%;
+  margin-right: 8%;
+}
+
+.containerClosed {
+  /* Estilos para cuando el panel está cerrado */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.card {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card2 {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.heading {
+  margin-bottom: 10px; /* Puedes ajustar el valor según sea necesario */
+}
