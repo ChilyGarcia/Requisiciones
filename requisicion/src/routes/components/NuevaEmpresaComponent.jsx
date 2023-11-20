@@ -9,7 +9,7 @@ export const NuevaEmpresaComponent = () => {
           <input type="text" />
           <span className={styles.highlight}></span>
 
-          <span class={styles.bar}></span>
+          <span className={styles.bar}></span>
           <label className={styles.labelForm}>Empresa</label>
         </div>
         <div className={styles.group}>

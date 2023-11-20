@@ -7,6 +7,11 @@ import { Link } from "react-router-dom";
 export const LogInComponent = () => {
   const formRef = useRef();
 
+  const loginRest = {
+    email: "admin@gmail.com",
+    password: "admin",
+  };
+
   useEffect(() => {
     formRef.current.focus();
   }, []);
@@ -22,6 +27,14 @@ export const LogInComponent = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+
+    if (email === loginRest.email && password === loginRest.password) {
+      localStorage.setItem("rol", "Requisision");
+      window.location.href = "new-requisicion";
+    } else {
+      localStorage.setItem("rol", "admin");
+      window.location.href = "estado-requisicion";
+    }
     console.log(form);
   };
 
@@ -93,15 +106,7 @@ export const LogInComponent = () => {
                               type="submit"
                               className={styles["btn"] + " mt-4"}
                             >
-                              <Link
-                                to="/estado-requisicion"
-                                style={{
-                                  color: "#104B53",
-                                  textDecoration: "none",
-                                }}
-                              >
-                                Iniciar sesión
-                              </Link>
+                              Iniciar sesion
                             </button>
                           </form>
                         </div>

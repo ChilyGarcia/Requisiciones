@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../../styles/panelStyles.module.css";
 import { Link } from "react-router-dom";
 
 export const PanelComponent = ({ enviarEstado }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
+  const [userRole, setUserRole] = useState("");
+
+  useEffect(() => {
+    const rol = localStorage.getItem("rol");
+
+    setUserRole(rol);
+  }, []);
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
     enviarEstado(!isSidebarOpen);
+  };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("rol");
   };
 
   return (
@@ -44,26 +55,47 @@ export const PanelComponent = ({ enviarEstado }) => {
                   <span className={styles["nav-text"]}>Gráficas</span>
                 </Link>
               </li> */}
+              {userRole === "Requisision" && (
+                <li>
+                  <Link
+                    to="/new-requisicion"
+                    className={styles["round-corners"]}
+                  >
+                    <i
+                      className={`fa fa-plus fa-2x ${styles["fa"]} ${styles["fa-2x"]}`}
+                    ></i>
+                    <span className={styles["nav-text"]}>
+                      Nueva requisicion
+                    </span>
+                  </Link>
+                </li>
+              )}
 
-              <li>
-                <Link
-                  to="/estado-requisicion"
-                  className={styles["round-corners"]}
-                >
-                  <i
-                    className={`fa fa-info fa-2x ${styles["fa"]} ${styles["fa-2x"]}`}
-                  ></i>
-                  <span className={styles["nav-text"]}>Estado requisicion</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/cotizaciones" className={styles["round-corners"]}>
-                  <i
-                    className={`fa fa-table fa-2x ${styles["fa"]} ${styles["fa-2x"]}`}
-                  ></i>
-                  <span className={styles["nav-text"]}>Cotizaciones</span>
-                </Link>
-              </li>
+              {userRole === "admin" && (
+                <li>
+                  <Link
+                    to="/estado-requisicion"
+                    className={styles["round-corners"]}
+                  >
+                    <i
+                      className={`fa fa-info fa-2x ${styles["fa"]} ${styles["fa-2x"]}`}
+                    ></i>
+                    <span className={styles["nav-text"]}>
+                      Estado requisicion
+                    </span>
+                  </Link>
+                </li>
+              )}
+              {userRole === "admin" && (
+                <li>
+                  <Link to="/cotizaciones" className={styles["round-corners"]}>
+                    <i
+                      className={`fa fa-table fa-2x ${styles["fa"]} ${styles["fa-2x"]}`}
+                    ></i>
+                    <span className={styles["nav-text"]}>Cotizaciones</span>
+                  </Link>
+                </li>
+              )}
 
               {/* <li>
                 <Link to="/infoHistorica" className={styles["round-corners"]}>
@@ -87,7 +119,11 @@ export const PanelComponent = ({ enviarEstado }) => {
 
             <ul className={styles.logout}>
               <li>
-                <Link to="/login" className={styles["round-corners"]}>
+                <Link
+                  to="/login"
+                  className={styles["round-corners"]}
+                  onClick={handleLogOut}
+                >
                   <i
                     className={`fa fa-power-off fa-2x ${styles["fa"]} ${styles["fa-2x"]}`}
                   ></i>
